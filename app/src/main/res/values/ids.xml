@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <item name="textViewCity" type="id">textViewCity</item>
-    <item name="textViewTemperature" type="id">textViewTemperature</item>
-    <item name="textViewDescription" type="id">textViewDescription</item>
-    <item name="imageViewIcon" type="id">imageViewIcon</item>
-    <item name="buttonSearch" type="id">buttonSearch</item>
-    <item name="buttonFavorites" type="id">buttonFavorites</item>
+    <item name="textViewCity" type="id" />
+    <item name="textViewTemperature" type="id" />
+    <item name="textViewDescription" type="id" />
+    <item name="imageViewIcon" type="id" />
+    <item name="buttonSearch" type="id" />
+    <item name="buttonFavorites" type="id" />
 </resources>

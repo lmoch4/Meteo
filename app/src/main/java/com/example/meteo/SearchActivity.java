@@ -17,7 +17,7 @@ public class SearchActivity extends AppCompatActivity {
     private EditText editTextCity;
     private Button buttonSearchCity;
     private RequestQueue requestQueue;
-    private final String API_KEY = "YOUR_API_KEY"; // Remplace par ta clé API OpenWeatherMap
+    private final String API_KEY = "8819462e5aa1d03181fe773d53b9d018"; // Remplace par ta clé API OpenWeatherMap
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

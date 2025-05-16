@@ -8,4 +8,8 @@ public class FavoriteCity {
     @PrimaryKey(autoGenerate = true)
     public int id;
     public String cityName;
+
+    public String getCityName() {
+        return cityName;
+    }
 }

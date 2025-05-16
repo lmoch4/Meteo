@@ -25,7 +25,7 @@ public class FavoritesActivity extends AppCompatActivity {
         AppDatabase db = AppDatabase.getInstance(this);
         List<FavoriteCity> favoriteCities = db.favoriteCityDao().getAll();
 
-        adapter = new FavoriteCityAdapter(favoriteCities);
+        adapter = new FavoriteCityAdapter(this,favoriteCities);
         recyclerViewFavorites.setAdapter(adapter);
     }
 }

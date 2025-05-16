@@ -1,92 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/bg_sky"
+    android:padding="16dp">
 
-    <!-- Nom de la ville -->
+    <!-- Ciel clair -->
     <TextView
-        android:id="@+id/textViewCity"
+        android:id="@+id/textViewDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ville"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:text="clear sky"
+        android:textSize="18sp"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"/>
 
     <!-- Température -->
     <TextView
         android:id="@+id/textViewTemperature"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Température"
-        android:textSize="20sp"
-        app:layout_constraintTop_toBottomOf="@id/textViewCity"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="20"
+        android:textSize="72sp"
+        android:textColor="@android:color/white"
+        android:layout_below="@id/textViewDescription"
+        android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp"/>
 
-    <!-- Description météo -->
+    <!-- Unité Fahrenheit -->
     <TextView
-        android:id="@+id/textViewDescription"
+        android:id="@+id/tv_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Description"
+        android:text="C"
+        android:textSize="24sp"
+        android:textColor="@android:color/white"
+        android:layout_toEndOf="@id/textViewTemperature"
+        android:layout_alignTop="@id/textViewTemperature"
+        android:layout_marginStart="4dp"/>
+
+    <!-- Ligne avec 3 icônes et valeurs -->
+    <LinearLayout
+        android:id="@+id/weather_stats"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_below="@id/textViewTemperature"
+        android:layout_marginTop="40dp">
+
+        <!-- Humidité -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_humidity"/>
+
+            <TextView
+                android:id="@+id/textViewhumidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="humidity"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+
+        <!-- Pression -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_pressure"/>
+            <TextView
+                android:id="@+id/textViewpressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1021 hPa"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+        </LinearLayout>
+
+        <!-- Vent -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_marginHorizontal="16dp">
+            <ImageView
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/ic_wind"/>
+            <TextView
+                android:id="@+id/textViewwind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4 mps"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Lieu -->
+    <TextView
+        android:id="@+id/textViewCity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ville"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@id/textViewTemperature"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"/>
+        android:textColor="@android:color/white"
+        android:layout_below="@id/weather_stats"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"/>
 
-    <!-- Icône météo -->
-    <ImageView
-        android:id="@+id/imageViewIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        app:layout_constraintTop_toBottomOf="@id/textViewDescription"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Bouton de recherche -->
-    <Button
-        android:id="@+id/buttonSearch"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Rechercher une ville"
-        app:layout_constraintTop_toBottomOf="@id/imageViewIcon"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"/>
+        android:layout_below="@+id/textViewCity"
+        android:layout_marginTop="214dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-    <!-- Bouton d'ajout aux favoris -->
+        <!-- 🔍 Bouton de recherche avec icône -->
+        <Button
+            android:id="@+id/buttonSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#87CEFA"
+            android:drawableStart="@android:drawable/ic_menu_search"
+            android:padding="12dp"
+            android:text="Rechercher"
+            android:textColor="#000000" />
 
-    <!-- Bouton favoris -->
-    <Button
-        android:id="@+id/buttonAddFavorite"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
-        android:text="Ajouter aux favoris"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/buttonSearch" />
+        <!-- ⭐ Bouton pour ajouter aux favoris -->
+        <Button
+            android:id="@+id/buttonAddFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:backgroundTint="#87CEFA"
+            android:drawableStart="@android:drawable/btn_star_big_off"
+            android:padding="12dp"
+            android:text="Ajou...favoris"
+            android:textColor="#000000" />
 
-    <Button
-        android:id="@+id/buttonFavorites"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Favoris"
-        app:layout_constraintTop_toBottomOf="@id/imageViewIcon"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"/>
+        <!-- 📘 Bouton pour voir les favoris -->
+        <Button
+            android:id="@+id/buttonFavorites"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#87CEFA"
+            android:text="Voir favoris"
+            android:textColor="#000000" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>
